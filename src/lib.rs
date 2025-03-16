@@ -7,7 +7,7 @@
 //! call its `evaluate_script` method.
 //!
 //! ```rust
-//! use rusty_jsc::JSContext;
+//! use pacm_rusty_jsc::JSContext;
 //!
 //! let mut context = JSContext::default();
 //! match context.evaluate_script("'hello, world'", 1) {
@@ -30,12 +30,12 @@ use std::panic;
 pub use crate::internal::JSString;
 // #[macro_export]
 mod closure;
-pub use rusty_jsc_macros::callback;
-pub use rusty_jsc_sys::JSObjectCallAsFunctionCallback;
-use rusty_jsc_sys::*;
+pub use pacm_rusty_jsc_macros::callback;
+pub use pacm_rusty_jsc_sys::JSObjectCallAsFunctionCallback;
+use pacm_rusty_jsc_sys::*;
 use std::fmt;
 pub mod private {
-    pub use rusty_jsc_sys::*;
+    pub use pacm_rusty_jsc_sys::*;
 }
 
 // pub use crate::closure::callback_closure;

@@ -1,4 +1,4 @@
-use rusty_jsc_sys::*;
+use pacm_rusty_jsc_sys::*;
 use std::{
     ffi::{CString, NulError},
     string::FromUtf8Error,
