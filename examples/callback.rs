@@ -1,5 +1,5 @@
-use rusty_jsc::{JSContext, JSObject, JSValue};
-use rusty_jsc_macros::callback;
+use pacm_rusty_jsc::{JSContext, JSObject, JSValue};
+use pacm_rusty_jsc_macros::callback;
 
 #[callback]
 fn example(

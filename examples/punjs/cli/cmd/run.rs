@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
-use rusty_jsc::{JSContext, JSValue};
-use rusty_jsc_macros::callback;
+use pacm_rusty_jsc::{JSContext, JSValue};
+use pacm_rusty_jsc_macros::callback;
 use std::fs;
 use std::path::PathBuf;
 

@@ -1,4 +1,4 @@
-use rusty_jsc::{JSContext, JSValue};
+use pacm_rusty_jsc::{JSContext, JSValue};
 
 fn main() {
     let mut context = JSContext::default();

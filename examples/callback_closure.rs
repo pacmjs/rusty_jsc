@@ -1,4 +1,4 @@
-use rusty_jsc::{callback_closure, JSContext, JSValue};
+use pacm_rusty_jsc::{callback_closure, JSContext, JSValue};
 
 fn main() {
     let context = JSContext::default();

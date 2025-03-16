@@ -1,7 +1,7 @@
-# JavaScriptCore API for Rust
+# JavaScriptCore API for Rust (PACMJS FORK)
 
-[![crates](https://img.shields.io/crates/v/rusty_jsc.svg)](https://crates.io/crates/rusty_jsc)
-[![docs](https://docs.rs/rusty_jsc/badge.svg)](https://docs.rs/rusty_jsc)
+[![crates](https://img.shields.io/crates/v/pacm_rusty_jsc.svg)](https://crates.io/crates/pacm_rusty_jsc)
+[![docs](https://docs.rs/pacm_rusty_jsc/badge.svg)](https://docs.rs/pacm_rusty_jsc)
 
 This library provides a Rust API for the JavaScriptCore engine with the following goals:
 
@@ -12,11 +12,11 @@ This library provides a Rust API for the JavaScriptCore engine with the followin
 
 ### Implementing a JavaScript runtime
 
-Please check out [PunJS](examples/punjs) for an example of how to implement a JavaScript runtime with `rusty_jsc`.
+Please check out [PunJS](examples/punjs) for an example of how to implement a JavaScript runtime with `pacm_rusty_jsc`.
 
 ### Evaluating a JavaScript script
 ```rust
-use rusty_jsc::{JSContext};
+use pacm_rusty_jsc::{JSContext};
 
 fn main() {
     let mut context = JSContext::default();
@@ -34,8 +34,8 @@ fn main() {
 ### Callbacks from JavaScript to Rust
 
 ```rust
-use rusty_jsc::{JSContext, JSValue};
-use rusty_jsc_macros::callback;
+use pacm_rusty_jsc::{JSContext, JSValue};
+use pacm_rusty_jsc_macros::callback;
 
 #[callback]
 fn greet(
@@ -67,8 +67,8 @@ fn main() {
 #### Passing functions to a callback
 
 ```rust
-use rusty_jsc::{JSContext, JSObject, JSValue, JSString};
-use rusty_jsc_macros::callback;
+use pacm_rusty_jsc::{JSContext, JSObject, JSValue, JSString};
+use pacm_rusty_jsc_macros::callback;
 
 #[callback]
 fn greet(
@@ -113,3 +113,32 @@ The wrappers in `rusty_jsc` are built against `<JavaScriptCore/JavaScript.h>` he
 
 I first used `bindgen` to do the rough conversion of `JavaScript/JavaScript.h` header and then cleaned it up by hand.
 The plan is to maintain the low-level bindings by hand.
+
+
+## License
+This project is a general fork of the [rusty_jsc](https://github.com/wasmerio/rusty_jsc) project, and is licensed under the MIT license.
+
+### License for the original project
+```
+MIT License
+
+Copyright (c) 2022 Pekka Enberg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

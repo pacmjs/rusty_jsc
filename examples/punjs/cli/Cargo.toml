@@ -12,6 +12,6 @@ path = "main.rs"
 [dependencies]
 anyhow = "1.0.62"
 clap = { version = "3.2.22", features = [ "derive" ] }
-rusty_jsc = { path = "../../../" }
-rusty_jsc_macros = { path = "../../../macros" }
-rusty_jsc_sys = { path = "../../../sys" }
+pacm_rusty_jsc = { path = "../../../" }
+pacm_rusty_jsc_macros = { path = "../../../macros" }
+pacm_rusty_jsc_sys = { path = "../../../sys" }
