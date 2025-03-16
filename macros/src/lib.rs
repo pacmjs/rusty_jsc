@@ -63,7 +63,7 @@ pub fn callback(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 #this_var_name,
                 #args_var_name,
             );
-            rusty_jsc::private::JSValueMakeUndefined(__base_ctx)
+            pacm_rusty_jsc::private::JSValueMakeUndefined(__base_ctx)
         },
         _ => quote! {
             //let res: Result<JSValue, JSValue> = todo!();
@@ -77,8 +77,8 @@ pub fn callback(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 Ok(res) => res.into(),
                 Err(err) => {
                     *__exception = err.into();
-                    let ctx2 = rusty_jsc::JSContext::from(__base_ctx);
-                    rusty_jsc::private::JSValueMakeUndefined(__base_ctx)
+                    let ctx2 = pacm_rusty_jsc::JSContext::from(__base_ctx);
+                    pacm_rusty_jsc::private::JSValueMakeUndefined(__base_ctx)
                 }
             }
         },
@@ -86,16 +86,16 @@ pub fn callback(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
     let result = quote! {
         unsafe extern "C" fn #name(
-            __base_ctx: rusty_jsc::private::JSContextRef,
-            __function: rusty_jsc::private::JSObjectRef,
-            __this_object: rusty_jsc::private::JSObjectRef,
-            __argument_count: rusty_jsc::private::size_t,
-            __arguments: *const rusty_jsc::private::JSValueRef,
-            mut __exception: *mut rusty_jsc::private::JSValueRef,
-        ) -> rusty_jsc::private::JSValueRef {
-            let #context_var_name = rusty_jsc::JSContext::from(__base_ctx);
-            let #function_var_name: rusty_jsc::JSObject= __function.into();
-            let #this_var_name: rusty_jsc::JSObject = __this_object.into();
+            __base_ctx: pacm_rusty_jsc::private::JSContextRef,
+            __function: pacm_rusty_jsc::private::JSObjectRef,
+            __this_object: pacm_rusty_jsc::private::JSObjectRef,
+            __argument_count: pacm_rusty_jsc::private::size_t,
+            __arguments: *const pacm_rusty_jsc::private::JSValueRef,
+            mut __exception: *mut pacm_rusty_jsc::private::JSValueRef,
+        ) -> pacm_rusty_jsc::private::JSValueRef {
+            let #context_var_name = pacm_rusty_jsc::JSContext::from(__base_ctx);
+            let #function_var_name: pacm_rusty_jsc::JSObject= __function.into();
+            let #this_var_name: pacm_rusty_jsc::JSObject = __this_object.into();
             let #args_var_name = if __argument_count == 0 {
                 vec![]
             }
@@ -173,7 +173,7 @@ pub fn constructor(_attr: TokenStream, item: TokenStream) -> TokenStream {
     };
 
     let result = quote! {
-        use rusty_jsc_sys::*;
+        use pacm_rusty_jsc::*;
 
         #target_func
 
